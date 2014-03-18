@@ -1,0 +1,9 @@
+alias c='clear'
+
+alias h='cd ~'
+alias code='cd /media/sf_php'
+alias trics='cd /media/sf_php/trics'
+
+function serve() {
+	sudo bash /home/bart/Scripts/serve.sh $1 $2
+}
