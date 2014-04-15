@@ -2,16 +2,27 @@
 
 My setup scripts I use for creating a new virtual machine for PHP development. Many of the components are specific to my own needs, such as installed packages and such. Still, feel free to fork it and modify it for your own usage.
 
-## How to use
+`wget -O setup.sh http://goo.gl/vcJxVA`
 
-Install a fresh Ubuntu Server machine in VirtualBox. Login to it and insert the Guest Additions. (`Devices` -> `Insert Guest Additions CD Image...` from the machine's menu). Just insert it, the installation will be done in the script. Next, run the `setup.sh` file to install all the base components and configuration. After that, you only need to setup your shared folders and configure port forwarding on your virtual machine. When that's done, everything is ready to go!
+## Instructions
+
+1. Install Ubuntu 13.10 in a new VirtualBox machine
+2. Login and select `Devices` -> `Insert Guest Additions CD Image...` from the VirtualBox menu
+3. Run the `setup.sh` script to install and configure the machine
 
 ## Installed components
 
 - Apache
 - PHP 5.5
 - XDebug
-- MySQL
+- MySQL (Password: secret)
 - `serve` script to automatically create new VirtualHosts.
+- My bash aliases
 
+## Port Forwarding
 
+You must configure port forwarding on your VBox in order to, for example, SSH into your Virtual PC from your host. You can access these options in your network settings from the virtual machine.
+
+## Shared Folders
+
+You can use shared folders to conveniently share your projects between the host and guest. This allows you to easily edit your files locally on your PC.
