@@ -13,7 +13,7 @@ wget -O ~/.bash_aliases https://raw.githubusercontent.com/Bartwillemsen/virtual-
 
 # Set Apache ServerName
 sudo sed -i "s/#ServerRoot.*/ServerName ubuntu/" /etc/apache2/apache2.conf
-sudo service apache restart
+sudo service apache2 restart
 
 # Install MySQL
 sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password secret'
@@ -25,6 +25,13 @@ sudo apt-get -y install mysql-server
 sudo sed -i '/^bind-address/s/bind-address.*=.*/bind-address = 10.0.2.15/' /etc/mysql/my.cnf
 mysql -u root -p mysql -e "GRANT ALL ON *.* TO root@'10.0.2.2' IDENTIFIED BY 'secret';"
 sudo service mysql restart
+
+# Enable PHP Error reporting.
+sudo sed -i "s/error_reporting = .*/error_reporting = E_ALL/" /etc/php5/apache2/php.ini
+sudo sed -i "s/display_errors = .*/display_errors = On/" /etc/php5/apache2/php.ini
+sudo sed -i "s/error_reporting = .*/error_reporting = E_ALL/" /etc/php5/cli/php.ini
+sudo sed -i "s/display_errors = .*/display_errors = On/" /etc/php5/cli/php.ini
+sudo sed -i "s/memory_limit = .*/memory_limit = 512M/" /etc/php5/cli/php.ini
 
 # Create Scripts directory.
 mkdir ~/Scripts
