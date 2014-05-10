@@ -15,4 +15,4 @@ echo "$vhost" >> "/etc/apache2/sites-available/$1.conf"
 
 ln -s "/etc/apache2/sites-available/$1.conf" "/etc/apache2/sites-enabled/$1.conf"
 
-service apache2 restart
+service apache2 reload
