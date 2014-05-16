@@ -40,7 +40,7 @@ ssh-keygen -f id_rsa -t rsa -N ''
 
 # Install node.js
 cd ~
-wget http://nodejs.org/dist/v.0.10.28/node-v0.10.28.tar.gz
+wget http://nodejs.org/dist/v0.10.28/node-v0.10.28.tar.gz
 tar -xvf node-v0.10.28.tar.gz
 cd node-v0.10.28
 ./configure
