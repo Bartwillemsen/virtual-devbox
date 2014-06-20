@@ -22,7 +22,7 @@ sudo apt-get -y install mysql-server
 
 # Configure MySQL.
 sudo sed -i '/^bind-address/s/bind-address.*=.*/bind-address = 10.0.2.15/' /etc/mysql/my.cnf
-mysql -u root -p secret -e "GRANT ALL ON *.* TO root@'10.0.2.2' IDENTIFIED BY 'secret';"
+mysql -u root -p mysql -e "GRANT ALL ON *.* TO root@'10.0.2.2' IDENTIFIED BY 'secret';"
 sudo service mysql restart
 
 # Enable PHP Error reporting.
