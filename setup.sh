@@ -33,7 +33,8 @@ sudo sed -i "s/display_errors = .*/display_errors = On/" /etc/php5/cli/php.ini
 sudo sed -i "s/memory_limit = .*/memory_limit = 512M/" /etc/php5/cli/php.ini
 
 # Configure Host-Only adapter
-adapter="auto eth1
+adapter="
+auto eth1
 iface eth1 inet static
 	address 192.168.10.10
 	netmask 255.255.255.0"
