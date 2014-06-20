@@ -22,7 +22,7 @@ sudo apt-get -y install mysql-server
 
 # Configure MySQL.
 sudo sed -i '/^bind-address/s/bind-address.*=.*/bind-address = 10.0.2.15/' /etc/mysql/my.cnf
-mysql -u root -p mysql -e "GRANT ALL ON *.* TO root@'10.0.2.2' IDENTIFIED BY 'secret';"
+mysql -u root -p secret -e "GRANT ALL ON *.* TO root@'10.0.2.2' IDENTIFIED BY 'secret';"
 sudo service mysql restart
 
 # Enable PHP Error reporting.
@@ -45,17 +45,17 @@ mkdir .ssh
 cd ~/.ssh
 ssh-keygen -f id_rsa -t rsa -N ''
 
-# Install node.js
+# Build and install Node.js from source.
 cd ~
-wget http://nodejs.org/dist/v0.10.28/node-v0.10.28.tar.gz
-tar -xvf node-v0.10.28.tar.gz
-cd node-v0.10.28
+wget http://nodejs.org/dist/v0.10.29/node-v0.10.29.tar.gz
+tar -xvf node-v0.10.29.tar.gz
+cd node-v0.10.29
 ./configure
 make
 sudo make install
 cd ~
-rm ~/node-v0.10.28.tar.gz
-rm -rf ~/node-v0.10.28
+rm ~/node-v0.10.29.tar.gz
+rm -rf ~/node-v0.10.29
 
 # Create Scripts directory.
 mkdir ~/Scripts
