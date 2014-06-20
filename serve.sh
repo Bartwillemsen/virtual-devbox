@@ -1,5 +1,3 @@
-echo "127.0.0.1 $1" >> "/etc/hosts"
-
 vhost="<VirtualHost *:80>
     ServerName $1
     DocumentRoot /media/sf_php/$2

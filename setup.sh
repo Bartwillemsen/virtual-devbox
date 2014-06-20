@@ -32,6 +32,13 @@ sudo sed -i "s/error_reporting = .*/error_reporting = E_ALL/" /etc/php5/cli/php.
 sudo sed -i "s/display_errors = .*/display_errors = On/" /etc/php5/cli/php.ini
 sudo sed -i "s/memory_limit = .*/memory_limit = 512M/" /etc/php5/cli/php.ini
 
+# Configure Host-Only adapter
+adapter="auto eth1
+iface eth1 inet static
+	address 192.168.10.10
+	netmask 255.255.255.0"
+echo "$adapter" | sudo tee -a /etc/network/interfaces
+
 # Generate SSH Key
 cd ~
 mkdir .ssh
@@ -62,12 +69,11 @@ echo "<?php echo phpinfo();" > ~/Scripts/PhpInfo/index.php
 
 #Configure VirtualHosts
 sudo a2enmod rewrite
-echo "127.0.0.1  info.app" | sudo tee -a /etc/hosts
 vhost="<VirtualHost *:80>
     ServerName info.app
 	DocumentRoot /home/bart/Scripts/PhpInfo
 	<Directory \"/home/bart/Scripts/PhpInfo\">
-	    Order allow,deny
+		Order allow,deny
 		Allow from all
 		Require all granted
 		AllowOverride all
