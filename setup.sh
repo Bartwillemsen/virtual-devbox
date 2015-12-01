@@ -46,18 +46,6 @@ mkdir .ssh
 cd ~/.ssh
 ssh-keygen -f id_rsa -t rsa -N ''
 
-# Build and install Node.js from source.
-cd ~
-wget http://nodejs.org/dist/v0.10.29/node-v0.10.29.tar.gz
-tar -xvf node-v0.10.29.tar.gz
-cd node-v0.10.29
-./configure
-make
-sudo make install
-cd ~
-rm ~/node-v0.10.29.tar.gz
-rm -rf ~/node-v0.10.29
-
 # Create Scripts directory.
 mkdir ~/Scripts
 mkdir ~/Scripts/PhpInfo
