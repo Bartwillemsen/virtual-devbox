@@ -5,8 +5,8 @@ sudo apt-get update
 sudo apt-get upgrade -y
 
 # Install web packages.
-sudo apt-get install -y build-essential dkms apache2 php5 php-pear php5-xdebug php5-sqlite php5-mysql \
-curl php5-curl memcached php5-memcached openssh-server git vim subversion
+sudo apt-get install -y build-essential dkms apache2 php7.0 php-pear php7.0-sqlite3 php7.0-mysql \
+curl php7.0-curl memcached openssh-server git vim subversion
 
 # Download Bash Aliases
 wget -O ~/.bash_aliases https://raw.githubusercontent.com/Bartwillemsen/virtual-devbox/master/aliases
@@ -31,14 +31,6 @@ sudo sed -i "s/display_errors = .*/display_errors = On/" /etc/php5/apache2/php.i
 sudo sed -i "s/error_reporting = .*/error_reporting = E_ALL/" /etc/php5/cli/php.ini
 sudo sed -i "s/display_errors = .*/display_errors = On/" /etc/php5/cli/php.ini
 sudo sed -i "s/memory_limit = .*/memory_limit = 512M/" /etc/php5/cli/php.ini
-
-# Configure Host-Only adapter
-adapter="
-auto eth1
-iface eth1 inet static
-	address 192.168.10.10
-	netmask 255.255.255.0"
-echo "$adapter" | sudo tee -a /etc/network/interfaces
 
 # Generate SSH Key
 cd ~
