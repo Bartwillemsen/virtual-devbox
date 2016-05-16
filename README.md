@@ -6,21 +6,20 @@ My setup scripts I use for creating a new virtual machine for PHP development. M
 
 ## Instructions
 
-1. Install Ubuntu 14.04 in a new VirtualBox machine
+1. Install Ubuntu 16.04 in a new VirtualBox machine
 2. Login and select `Devices` -> `Insert Guest Additions CD Image...` from the VirtualBox menu
 3. Run the `setup.sh` script to install and configure the machine
 
 After the machine has been installed, you only need to setup your shared folder(s) and port forwarding. Everything else is ready to go. You can connect to MySQL via any database management program on your host, like MySQL Workbench.
 
-A few of the actions in the script assume your shared folder will be `/media/sf_php`. You can modify the `serve.sh` and `setup.sh` scripts to your own situation.
+A few of the actions in the script assume your shared folder will be `/media/sf_Web`. You can modify the `serve.sh` and `setup.sh` scripts to your own situation.
 
 ## Installed components
 
 - Apache
-- PHP 5.5
+- PHP 7.0
 - XDebug
 - MySQL (Password: secret)
-- Node.js
 - SSH Key Generation
 - `serve` script to automatically create new VirtualHosts.
 - My bash aliases
